@@ -46,6 +46,7 @@ export default function ListingScreen() {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: colors.light,
+    backgroundColor: colors.white,
+    paddingHorizontal: 3,
   },
 });
