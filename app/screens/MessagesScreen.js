@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import Screen from "../components/Screen";
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItem from "../components/list/ListItem";
+import ListItemSeparator from "../components/list/ListItemSeparator";
+import ListItemDeleteAction from "../components/list/ListItemDeleteAction";
 
 const initialMessages = [
   {
     id: 1,
     title: "T1",
-    description: "D1",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, adipisci?",
     image: require("../assets/profile.jpg"),
   },
   {

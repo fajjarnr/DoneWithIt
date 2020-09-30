@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import AppText from "../AppText";
+import AppText from "../Text";
 
 export default function ErrorMessage({ error, visible }) {
   if (!visible || !error) return null; //jika visible false atau tidak error maka null
