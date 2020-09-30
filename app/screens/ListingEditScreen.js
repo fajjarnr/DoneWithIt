@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 import {
   Form,
   FormField,
@@ -8,7 +9,6 @@ import {
   SubmitButton,
 } from "../components/forms";
 import Screen from "../components/Screen";
-import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -97,8 +97,8 @@ export default function ListingEditScreen() {
         />
         <Picker
           items={categories}
-          numberOfColumns={3}
           name="category"
+          numberOfColumns={3}
           PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
           width="50%"
@@ -107,7 +107,7 @@ export default function ListingEditScreen() {
           maxLength={255}
           multiline
           name="description"
-          numberOfLine={3}
+          numberOfLines={3}
           placeholder="Description"
         />
         <SubmitButton title="Post" />

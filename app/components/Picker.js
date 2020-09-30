@@ -9,9 +9,9 @@ import {
   View,
 } from "react-native";
 import defaultStyles from "../config/styles";
-import AppText from "./Text";
 import PickerItem from "./PickerItem";
 import Screen from "./Screen";
+import Text from "./Text";
 
 export default function AppPicker({
   icon,
@@ -38,10 +38,11 @@ export default function AppPicker({
             />
           )}
           {selectedItem ? (
-            <AppText style={styles.text}>{selectedItem.label}</AppText>
+            <Text style={styles.text}>{selectedItem.label}</Text>
           ) : (
-            <AppText style={styles.placeholder}>{placeholder}</AppText>
+            <Text style={styles.placeholder}>{placeholder}</Text>
           )}
+
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -58,7 +59,7 @@ export default function AppPicker({
             numColumns={numberOfColumns}
             renderItem={({ item }) => (
               <PickerItemComponent
-                items={item}
+                item={item}
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
@@ -84,10 +85,11 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 10,
   },
-  text: {
-    flex: 1,
-  },
   placeholder: {
     color: defaultStyles.colors.medium,
+    flex: 1,
+  },
+  text: {
+    flex: 1,
   },
 });
