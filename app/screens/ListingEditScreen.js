@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useRef } from "react";
+import { StyleSheet, ScrollView } from "react-native";
 import * as Yup from "yup";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import {
@@ -9,8 +9,8 @@ import {
   SubmitButton,
 } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
-import useLocation from "../hooks/useLocation";
 import Screen from "../components/Screen";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -81,45 +81,47 @@ export default function ListingEditScreen() {
   const location = useLocation();
 
   return (
-    <Screen style={styles.container}>
-      <Form
-        initialValues={{
-          title: "",
-          price: "",
-          description: "",
-          category: null,
-          images: [],
-        }}
-        onSubmit={(values) => console.log(location)}
-        validationSchema={validationSchema}
-      >
-        <FormImagePicker name="images" />
-        <FormField maxLength={255} name="title" placeholder="Title" />
-        <FormField
-          keyboardType="numeric"
-          maxLength={8}
-          name="price"
-          placeholder="Price"
-          width={120}
-        />
-        <Picker
-          items={categories}
-          name="category"
-          numberOfColumns={3}
-          PickerItemComponent={CategoryPickerItem}
-          placeholder="Category"
-          width="50%"
-        />
-        <FormField
-          maxLength={255}
-          multiline
-          name="description"
-          numberOfLines={3}
-          placeholder="Description"
-        />
-        <SubmitButton title="Post" />
-      </Form>
-    </Screen>
+    <ScrollView>
+      <Screen style={styles.container}>
+        <Form
+          initialValues={{
+            title: "",
+            price: "",
+            description: "",
+            category: null,
+            images: [],
+          }}
+          onSubmit={(values) => console.log(location)}
+          validationSchema={validationSchema}
+        >
+          <FormImagePicker name="images" />
+          <FormField maxLength={255} name="title" placeholder="Title" />
+          <FormField
+            keyboardType="numeric"
+            maxLength={8}
+            name="price"
+            placeholder="Price"
+            width={120}
+          />
+          <Picker
+            items={categories}
+            name="category"
+            numberOfColumns={3}
+            PickerItemComponent={CategoryPickerItem}
+            placeholder="Category"
+            width="50%"
+          />
+          <FormField
+            maxLength={255}
+            multiline
+            name="description"
+            numberOfLines={3}
+            placeholder="Description"
+          />
+          <SubmitButton title="Post" />
+        </Form>
+      </Screen>
+    </ScrollView>
   );
 }
 
