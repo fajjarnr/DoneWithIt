@@ -1,19 +1,19 @@
 import React from "react";
-
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import AccountScreen from "../screens/AccountScreen";
-import ListingEditScreen from "../screens/ListingEditScreen";
+import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
-import { color } from "react-native-reanimated";
+import ListingEditScreen from "../screens/ListingEditScreen";
+import NewListingButton from "./NewListingButton";
+import routes from "./routes";
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => (
   <Tab.Navigator>
     <Tab.Screen
-      name="Listings"
+      name="Feed"
       component={FeedNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
@@ -21,10 +21,27 @@ const AppNavigator = () => (
         ),
       }}
     />
-    <Tab.Screen name="ListingEditScreen" component={ListingEditScreen} />
+    <Tab.Screen
+      name="ListingEdit"
+      component={ListingEditScreen}
+      options={({ navigation }) => ({
+        tabBarButton: () => (
+          <NewListingButton
+            onPress={() => navigation.navigate(routes.LISTING_EDIT)}
+          />
+        ),
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons
+            name="plus-circle"
+            color={color}
+            size={size}
+          />
+        ),
+      })}
+    />
     <Tab.Screen
       name="Account"
-      component={AccountScreen}
+      component={AccountNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="account" color={color} size={size} />

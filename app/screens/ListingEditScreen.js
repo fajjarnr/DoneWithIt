@@ -81,47 +81,45 @@ export default function ListingEditScreen() {
   const location = useLocation();
 
   return (
-    <ScrollView>
-      <Screen style={styles.container}>
-        <Form
-          initialValues={{
-            title: "",
-            price: "",
-            description: "",
-            category: null,
-            images: [],
-          }}
-          onSubmit={(values) => console.log(location)}
-          validationSchema={validationSchema}
-        >
-          <FormImagePicker name="images" />
-          <FormField maxLength={255} name="title" placeholder="Title" />
-          <FormField
-            keyboardType="numeric"
-            maxLength={8}
-            name="price"
-            placeholder="Price"
-            width={120}
-          />
-          <Picker
-            items={categories}
-            name="category"
-            numberOfColumns={3}
-            PickerItemComponent={CategoryPickerItem}
-            placeholder="Category"
-            width="50%"
-          />
-          <FormField
-            maxLength={255}
-            multiline
-            name="description"
-            numberOfLines={3}
-            placeholder="Description"
-          />
-          <SubmitButton title="Post" />
-        </Form>
-      </Screen>
-    </ScrollView>
+    <Screen style={styles.container}>
+      <Form
+        initialValues={{
+          title: "",
+          price: "",
+          description: "",
+          category: null,
+          images: [],
+        }}
+        onSubmit={(values) => console.log(location)}
+        validationSchema={validationSchema}
+      >
+        <FormImagePicker name="images" />
+        <FormField maxLength={255} name="title" placeholder="Title" />
+        <FormField
+          keyboardType="numeric"
+          maxLength={8}
+          name="price"
+          placeholder="Price"
+          width={120}
+        />
+        <Picker
+          items={categories}
+          name="category"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+          placeholder="Category"
+          width="50%"
+        />
+        <FormField
+          maxLength={255}
+          multiline
+          name="description"
+          numberOfLines={3}
+          placeholder="Description"
+        />
+        <SubmitButton title="Post" />
+      </Form>
+    </Screen>
   );
 }
 

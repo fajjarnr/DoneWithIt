@@ -1,11 +1,11 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import colors from "../config/colors";
 
 export default function NewListingButton({ onPress }) {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <MaterialCommunityIcons
           name="plus-circle"
@@ -13,7 +13,7 @@ export default function NewListingButton({ onPress }) {
           color={colors.white}
         />
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 }
 
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     borderWidth: 10,
     height: 80,
-    bottom: 20,
+    bottom: 25,
     justifyContent: "center",
     width: 80,
   },

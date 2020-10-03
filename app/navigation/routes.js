@@ -1,6 +1,4 @@
-import { object } from "yup";
-
-export default object.freeze({
+export default Object.freeze({
   LISTING_DETAILS: "ListingDetails",
   LISTING_EDIT: "ListingEdit",
   LOGIN: "Login",
