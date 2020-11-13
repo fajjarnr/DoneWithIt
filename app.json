@@ -4,7 +4,7 @@
     "slug": "DoneWithIt",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./app/assets/logo-red.png",
+    "icon": "./app/assets/icon.png",
     "splash": {
       "image": "./app/assets/splash.png",
       "resizeMode": "cover",
@@ -19,10 +19,17 @@
     "ios": {
       "supportsTablet": true
     },
+    "android":{
+      "package": "com.fajjarnr.donewithit",
+      "versionCode": 1
+    },
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
     "description": "A marketplace for selling the stuff you don't need anymore",
-    "githubUrl": "https://github.com/fajjarnr/DoneWithIt"
+    "githubUrl": "https://github.com/fajjarnr/DoneWithIt",
+    "notification": {
+      "iosDisplayInForeground": true
+    }
   }
 }
