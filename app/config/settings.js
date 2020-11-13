@@ -2,10 +2,10 @@ import Constants from "expo-constants";
 
 const settings = {
   dev: {
-    apiURL: "http://192.168.1.5:9000/api",
+    apiURL: "https://donewithit-server.herokuapp.com/api",
   },
   staging: {
-    apiURL: "http://192.168.1.5:9000/api",
+    apiURL: "https://donewithit-server.herokuapp.com/api",
   },
   prod: {
     apiURL: "https://donewithit-server.herokuapp.com/api",
